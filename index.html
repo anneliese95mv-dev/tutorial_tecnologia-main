@@ -1,0 +1,388 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tutorial React</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <header id="inicio">
+
+    <img src="img/react-logo.gif" alt="Logo React" class="logo">
+
+    <h1>Aprende React desde Cero</h1>
+
+    <p>Guía práctica para principiantes.</p>
+
+    <nav>
+        <ul>
+            <li><a href="#justificacion">Justificación</a></li>
+            <li><a href="#instalacion">Instalación</a></li>
+            <li><a href="#primeros">Primeros pasos</a></li>
+            <li><a href="#utilizacion">Utilización</a></li>
+            <li><a href="#funcionamiento">Funcionamiento</a></li>
+            <li><a href="#recursos">Recursos</a></li>
+            <li><a href="#ejercicios">Ejercicios</a></li>
+            <li><a href="#conclusiones">Conclusiones</a></li>
+        </ul>
+    </nav>
+
+</header>
+
+    <main>
+
+        <section id="justificacion">
+            <h2>1. Justificación del framework</h2>
+
+            <h3>¿Qué es React?</h3>
+
+            <p>
+                React es una biblioteca de JavaScript desarrollada por Meta para crear interfaces de usuario
+                interactivas-páginas donde la pantalla cambia sin recargar .
+            </p>
+
+            <ul>
+                <li>Permite desarrollar aplicaciones web modernas.</li>
+                <li>Se utiliza en tiendas en línea, redes sociales y paneles administrativos.</li>
+                <li>Trabaja junto con HTML (JSX), CSS y JavaScript.</li>
+                <li>Se recomienda tener conocimientos básicos de HTML, CSS y JavaScript.</li>
+            </ul>
+            <div class="volver-menu">
+                <a href="#inicio">⬆ Volver al menú</a>
+            </div>
+        </section>
+
+        <section id="instalacion">
+            <h2>2. Instalación</h2>
+
+            <p>¿Se precisa instalación? Sí, necesitas Node.js instalado en tu máquina (React corre sobre su motor para el entorno de desarrollo).</p>
+
+            <pre><code>
+            # 1. Instalar Node.js (incluye npm) desde nodejs.org
+            node -v   # verificar instalación
+
+            # 2. Crear proyecto con Vite (más rápido que Create React App, que ya está obsoleto)
+            npm create vite@latest mi-proyecto -- --template react
+
+            # 3. Entrar e instalar dependencias
+            cd mi-proyecto
+            npm install
+
+            # 4. Correr en modo desarrollo
+            npm run dev
+            </code></pre>
+
+            <p>Versiones: Node.js 18+ recomendado. React 18 o 19 (la actual).</p>
+            <p>Rutas a considerar:</p>
+            <li>src/ → donde vive tu código</li>
+            <li>src/main.jsx → punto de entrada</li>
+            <li>src/App.jsx → componente raíz</li>
+            <li>public/ → archivos estáticos (imágenes, favicon)</li>
+
+            <div class="volver-menu">
+                <a href="#inicio">⬆ Volver al menú</a>
+            </div>
+        </section>
+
+        <section id="primeros">
+            <h2>3. Primeros pasos</h2>
+
+            <p>Dentro de src/App.jsx:</p>
+            <pre><code>function App() {
+    return &lt;h1&gt;¡Hola Mundo desde React!&lt;/h1&gt;;
+    }
+
+    export default App;</code></pre>
+
+         <p>Corres <strong>npm run dev</strong>, abres la URL que te da (normalmente localhost:5173), y ahí lo ves.</p>
+
+         <div class="volver-menu">
+                <a href="#inicio">⬆ Volver al menú</a>
+        </div>
+        </section>
+
+        <section id="utilizacion">
+
+            <h2>4. Utilización del framework</h2>
+
+            <h3>Crear una aplicación base</h3>
+
+            <p>
+                En React, una aplicación se construye mediante <strong>componentes</strong>. Un componente
+                es una función de JavaScript que devuelve JSX, una sintaxis similar a HTML que React utiliza
+                para describir la interfaz de usuario.
+            </p>
+
+            <pre><code>function Saludo({ nombre }) {
+        return &lt;p&gt;Hola, {nombre}&lt;/p&gt;;
+        }
+
+        function App() {
+        return (
+            &lt;div&gt;
+            &lt;Saludo nombre="Sara" /&gt;
+            &lt;Saludo nombre="Cliente" /&gt;
+            &lt;/div&gt;
+        );
+        }</code></pre>
+
+            <p>
+                Los componentes pueden reutilizarse y combinarse entre sí como si fueran bloques de construcción.
+                En este ejemplo, el componente <strong>App</strong> utiliza dos veces el componente
+                <strong>Saludo</strong>, enviándole diferentes valores mediante propiedades (props).
+            </p>
+
+            <h3>Visualizar los resultados</h3>
+
+            <p>
+                Para ejecutar la aplicación se utiliza el siguiente comando:
+            </p>
+
+            <pre><code>npm run dev</code></pre>
+
+            <p>
+                Este comando inicia un servidor de desarrollo local con <strong>Hot Reload</strong>.
+                Cada vez que se guarda un cambio en el código, el navegador actualiza automáticamente
+                la aplicación sin necesidad de recargar la página manualmente, lo que facilita y agiliza
+                el proceso de desarrollo.
+            </p>
+
+            <div class="volver-menu">
+                <a href="#inicio">⬆ Volver al menú</a>
+            </div>
+
+        </section>
+
+        <section id="funcionamiento">
+
+            <h2>5. Funcionamiento</h2>
+
+            <h3>¿Cómo funciona React?</h3>
+
+            <p>
+                React trabaja mediante <strong>componentes</strong>, que son piezas reutilizables de la
+                interfaz de usuario. Cada componente normalmente se desarrolla en un archivo con extensión
+                <strong>.jsx</strong> y puede utilizarse en diferentes partes de la aplicación. A diferencia
+                de un sitio web tradicional en HTML, donde normalmente cada página corresponde a un archivo,
+                en React cada archivo representa una parte específica de la interfaz.
+            </p>
+
+            <h3>¿Cómo se editan los archivos?</h3>
+
+            <p>
+                Los componentes se crean y modifican directamente desde un editor de código como
+                <strong>Visual Studio Code</strong>. Posteriormente, se exportan e importan para ser
+                utilizados en otros componentes de la aplicación.
+            </p>
+
+            <pre><code>// Boton.jsx
+        export function Boton() {
+        return &lt;button&gt;Click&lt;/button&gt;;
+        }
+
+        // App.jsx
+        import { Boton } from './Boton';
+
+        function App() {
+        return (
+            &lt;div&gt;
+            &lt;Boton /&gt;
+            &lt;/div&gt;
+        );
+        }</code></pre>
+
+            <h3>¿Cómo se conecta con otras aplicaciones?</h3>
+
+            <p>
+                En una aplicación React, los componentes se comunican entre sí mediante
+                <strong>import</strong>. Cuando es necesario obtener información de otros sistemas,
+                como una base de datos, un servidor o una API externa, React utiliza solicitudes
+                HTTP mediante funciones como <strong>fetch()</strong> o bibliotecas como
+                <strong>Axios</strong>. De esta manera, React consume los datos proporcionados por
+                otros servicios sin importar directamente el código de esas aplicaciones.
+            </p>
+
+            <div class="volver-menu">
+                <a href="#inicio">⬆ Volver al menú</a>
+            </div>
+
+        </section>
+
+        <section id="recursos">
+            <h2>6. Recursos recomendados</h2>
+
+            <ul>
+                <li><a href="https://react.dev" target="_blank">Documentación oficial de React</a></li>
+                <li><a href="https://vite.dev" target="_blank">Documentación de Vite</a></li>
+                <li><a href="https://developer.mozilla.org/" target="_blank">MDN Web Docs</a></li>
+                <li><a href="https://javascript.info/" target="_blank">JavaScript.info</a></li>
+                <li><a href="https://code.visualstudio.com/" target="_blank">Visual Studio Code</a></li>
+                <li><a href="https://nodejs.org/" target="_blank">Node.js</a></li>
+            </ul>
+        <div class="volver-menu">
+                <a href="#inicio">⬆ Volver al menú</a>
+        </div>
+
+        </section>
+
+        <section id="ejercicios">
+
+            <h2>7. Ejercicios prácticos</h2>
+
+            <h3>Ejercicio 1: Crear un componente de bienvenida</h3>
+
+            <p>
+                Crea un componente llamado <strong>Bienvenida.jsx</strong> que reciba el nombre
+                de una persona mediante una propiedad (<strong>prop</strong>) y muestre un mensaje.
+            </p>
+
+            <pre><code>function Bienvenida({ nombre }) {
+        return &lt;h2&gt;¡Bienvenido, {nombre}!&lt;/h2&gt;;
+        }
+
+        function App() {
+        return &lt;Bienvenida nombre="Sara" /&gt;;
+        }</code></pre>
+
+            <p><strong>Resultado esperado:</strong></p>
+
+            <p>
+                En el navegador deberá aparecer el siguiente mensaje:
+            </p>
+
+            <p>¡Bienvenido, Sara!</p>
+
+
+            <h3>Ejercicio 2: Crear un contador</h3>
+
+            <p>
+                Utiliza el Hook <strong>useState</strong> para crear un botón que aumente un contador
+                cada vez que el usuario haga clic.
+            </p>
+
+            <pre><code>import { useState } from "react";
+
+        function Contador() {
+
+        const [contador, setContador] = useState(0);
+
+        return (
+            &lt;div&gt;
+            &lt;p&gt;Contador: {contador}&lt;/p&gt;
+
+            &lt;button onClick={() => setContador(contador + 1)}&gt;
+                Incrementar
+            &lt;/button&gt;
+            &lt;/div&gt;
+        );
+
+        }
+
+        export default Contador;</code></pre>
+
+            <p><strong>Resultado esperado:</strong></p>
+
+            <p>
+                Al hacer clic en el botón, el número del contador aumentará en uno.
+            </p>
+
+
+            <h3>Ejercicio 3: Mostrar una lista</h3>
+
+            <p>
+                Utiliza el método <strong>map()</strong> para recorrer un arreglo y mostrar
+                cada elemento en pantalla.
+            </p>
+
+            <pre><code>function ListaFrutas() {
+
+        const frutas = ["Manzana", "Pera", "Naranja"];
+
+        return (
+            &lt;ul&gt;
+            {frutas.map((fruta, index) => (
+                &lt;li key={index}&gt;{fruta}&lt;/li&gt;
+            ))}
+            &lt;/ul&gt;
+        );
+
+        }
+
+        export default ListaFrutas;</code></pre>
+
+            <p><strong>Resultado esperado:</strong></p>
+
+            <p>La aplicación mostrará la siguiente lista:</p>
+
+            <li>Manzana</li>
+            <li>Pera</li>
+            <li>Naranja</li>
+
+        <div class="volver-menu">
+                <a href="#inicio">⬆ Volver al menú</a>
+        </div>
+        </section>
+
+        <section id="conclusiones">
+            <h2>8. Conclusiones</h2>
+
+            <p>
+                React es una herramienta muy útil para crear páginas y aplicaciones web que necesitan
+                actualizarse constantemente sin recargar toda la pantalla, como ocurre en sistemas de 
+                recomendación o formularios interactivos. Su principal ventaja es que organiza el código en 
+                partes reutilizables llamadas componentes, lo que facilita su mantenimiento y escalabilidad 
+                conforme el proyecto crece. Aunque requiere cierto tiempo de aprendizaje para quienes 
+                recién empiezan, una vez comprendido su funcionamiento permite desarrollar interfaces más 
+                rápidas, ordenadas y fáciles de actualizar, por lo que se considera una opción adecuada para 
+                proyectos donde la interacción con el usuario y la actualización de datos en tiempo real son fundamentales.
+            </p>
+        
+        <div class="volver-menu">
+                <a href="#inicio">⬆ Volver al menú</a>
+        </div>
+
+        </section>
+
+    </main>
+
+<section class="Autores">
+
+    <img src="img/unir-logo.jpg" alt="UNIR Logo">
+
+    <div class="datos-Autores">
+
+        <h2>Información del proyecto</h2>
+
+        <p><strong>Materia:</strong> Desarrollo Web</p>
+
+        <p><strong>Actividad:</strong> Tutorial de React</p>
+
+        <p><strong>Framework:</strong> React con Vite</p>
+
+        <p><strong>Autores:</strong></p>
+
+        <ul>
+            <li>Sara Alicia Domínguez Martinez</li>
+            <li>Daniela Sanchez Fuentes</li>
+            <li>Cesar Fernando Puente Ramos</li>
+            <li>Guillermo Alejandro Orendain Cibrian</li>
+            <li>Anneliese Miramontes Velazquez</li>
+        </ul>
+
+    </div>
+
+</section>
+
+    <footer>
+        <p>Proyecto académico - Tutorial React con Vite</p>
+    </footer>
+
+    <script src="script.js"></script>
+
+</body>
+
+</html>
